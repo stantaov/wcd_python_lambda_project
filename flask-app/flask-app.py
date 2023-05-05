@@ -8,8 +8,8 @@ app = Flask(__name__)
 # Connect to MongoDB
 MONGO_URI = os.environ["MONGO_URI"]
 client = MongoClient(MONGO_URI)
-db = client.my_db
-collection =client.my_collection
+db = client["my_db"]
+collection =client["my_collection"]
 
 @app.route("/postdata", methods=["POST"])
 def top10():
