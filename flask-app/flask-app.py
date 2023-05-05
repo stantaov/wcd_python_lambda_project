@@ -17,7 +17,7 @@ def post_data():
     return jsonify({"_id": str(result.inserted_id)}), 201
 
 @app.route("/getdata", methods=["GET"])
-def retrieve_data(id):
+def retrieve_data():
     cursor = collection.find()
     data = []
     for document in cursor:
