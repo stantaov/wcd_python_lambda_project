@@ -15,7 +15,7 @@ collection = db.my_collection
 def top10():
     data = request.get_json()
     result = collection.insert_one(data)
-    return jsonify({"_id": str(result.insert_id)}), 201
+    return jsonify({"_id": str(result.inserted_id)}), 201
 
 @app.route("/getdata/<id>", methods=["GET"])
 def retrive(id):
