@@ -1,2 +1,5 @@
 /flask-app/.env
-
+/python/lib/python3.8/site-packages/*
+.env
+sandbox
+log

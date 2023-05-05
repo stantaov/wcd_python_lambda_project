@@ -1,0 +1,15 @@
+[api]
+api_url="3.18.214.58/postdata"
+
+[s3]
+bucket='wcd-python-cloud-project'
+folder='input'
+
+[db]
+host='ctkadxcqu2bl.us-east-2.rds.amazonaws.com'
+port=3306
+database='database'
+schema='superstore'
+
+[run]
+py_script="run.py"
