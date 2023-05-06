@@ -13,8 +13,13 @@ collection = db.my_collection
 @app.route("/postdata", methods=["POST"])
 def post_data():
     data = request.get_json()
-    result = collection.insert_one(data)
-    return jsonify({"_id": str(result.inserted_id)}), 201
+    if isinstance(data, list):
+        result = collection.insert_many(data)
+        inserted_ids = [str(id) for id in result.inserted_ids]
+        return jsonify({"_ids": inserted_ids}), 201
+    else:
+        result = collection.insert_one(data)
+        return jsonify({"_id": str(result.inserted_id)}), 201
 
 @app.route("/getdata", methods=["GET"])
 def retrieve_data():
