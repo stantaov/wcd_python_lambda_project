@@ -1,5 +1,5 @@
 /flask-app/.env
-aws-layer/python/lib/python3.8/site-packages/
+lambda_layer/aws-layer/python/lib/python3.8/site-packages/
 lambda_layer/sandbox/
 .env
 sandbox
