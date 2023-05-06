@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the Flask app into the container 
-COPY flask-app.py .
+COPY flask_app.py .
 
 # Expose the port for the Flask app
 EXPOSE 5000
