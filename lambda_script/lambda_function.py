@@ -71,7 +71,7 @@ def get_customer_data(engine: db.engine.base.Engine, sql: str) -> str:
             {"id": row[0], "name": row[1], "date": date.today().strftime("%Y-%m-%d")}
             for row in mysql_result
         ]
-        return json.dumps(records)
+        return records
     except Exception as err:
         raise ValueError(f"Failed to fetch customer data: {err}")
 
@@ -89,8 +89,6 @@ def lambda_handler(event, context):
     load_dotenv()
     user = os.getenv("user")
     password = os.getenv("password")
-    access_key = os.getenv("access_key")
-    secret_key = os.getenv("secret_key")
 
     s3_client = boto3.client("s3")
 
@@ -110,10 +108,13 @@ def lambda_handler(event, context):
                   FROM customers
                   WHERE customerID in {ids};
                """
-        data = get_customer_data(engine, sql)
+        records = get_customer_data(engine, sql)
 
-        request = requests.post(api_url, data=data)
-        return request.status_code
+        headers = {'Content-Type': 'application/json'}
+
+        for record in records:
+            request = requests.post(api_url, json=record, headers=headers)
+            return request.status_code
 
     except Exception as err:
         print(f"Error: {err}")
