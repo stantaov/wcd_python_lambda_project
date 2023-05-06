@@ -1,4 +1,5 @@
 flask-app/.env
+lambda_script/.env
 lambda_layer/aws-layer/python/lib/python3.8/site-packages/
 lambda_layer/sandbox/
 .env
