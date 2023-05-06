@@ -1,5 +1,8 @@
 /flask-app/.env
-/python/lib/python3.8/site-packages/*
+aws-layer/python/lib/python3.8/site-packages/
+lambda_layer/sandbox/
 .env
 sandbox
 log
+
+!/aws-layer/lambda-layer.zip
