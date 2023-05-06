@@ -1,5 +1,5 @@
 [api]
-api_url="3.18.214.58/postdata"
+api_url="http://3.20.235.193/postdata"
 
 [s3]
 bucket='wcd-python-cloud-project'
