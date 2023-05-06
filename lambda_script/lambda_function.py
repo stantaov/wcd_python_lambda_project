@@ -92,7 +92,7 @@ def lambda_handler(event, context):
     access_key = os.getenv("access_key")
     secret_key = os.getenv("secret_key")
 
-    s3_client = boto3.client("s3", aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+    s3_client = boto3.client("s3")
 
     bucket = event["Records"][0]["s3"]["bucket"]["name"]
     key = event["Records"][0]["s3"]["object"]["key"].split("/")[1]
