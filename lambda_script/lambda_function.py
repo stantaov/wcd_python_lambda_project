@@ -112,9 +112,9 @@ def lambda_handler(event, context):
 
         headers = {'Content-Type': 'application/json'}
 
-        for record in records:
-            request = requests.post(api_url, json=record, headers=headers)
-            return request.status_code
+        request = requests.post(api_url, json=records, headers=headers)
+        print(request.status_code)
+        return request.status_code
 
     except Exception as err:
         print(f"Error: {err}")
