@@ -17,5 +17,5 @@ COPY flask_app.py .
 EXPOSE 5000
 
 # Start the Flask app
-CMD [ "python", "flask-app.py" ]
+CMD [ "python", "flask_app.py" ]
 
