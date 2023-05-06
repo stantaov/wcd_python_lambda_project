@@ -88,7 +88,7 @@ def load_data(bucket: str, folder: str) -> None:
     
 
 def main():
-    app_config = toml.load('config_file.toml')
+    app_config = toml.load('config.toml')
 
     host = app_config['db']['host']
     port = app_config['db']['port']
